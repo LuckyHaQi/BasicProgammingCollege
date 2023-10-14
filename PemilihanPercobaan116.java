@@ -5,10 +5,10 @@ public class PemilihanPercobaan116{
         System.out.print("Masukkan angka: ");
         int angka = input16.nextInt();
 
-        if (angka % 2 == 0)
-        System.out.println ("angka " + angka + " bilangan genap");
-        else
-        System.out.println ("angka " + angka + " bilangan ganjil");
+        //if (angka % 2 == 0)
+        //System.out.println ("angka " + angka + " bilangan genap");
+        //else
+        //System.out.println ("angka " + angka + " bilangan ganjil");
 
         String hasil;
         hasil = (angka % 2 == 0) ? "Bilangan genap" : "Bilangan ganjil";
