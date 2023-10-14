@@ -10,5 +10,8 @@ public class PemilihanPercobaan116{
         else
         System.out.println ("angka " + angka + " bilangan ganjil");
 
+        String hasil;
+        hasil = (angka % 2 == 0) ? "Bilangan genap" : "Bilangan ganjil";
+        System.out.println(angka + " adalah " + hasil);
     }
 }
