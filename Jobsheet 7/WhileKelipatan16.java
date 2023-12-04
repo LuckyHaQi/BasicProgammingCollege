@@ -1,7 +1,5 @@
 import java.util.Scanner;
-
 public class WhileKelipatan16{
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int kelipatan, rataRata = 0, total = 0, counter = 0;
