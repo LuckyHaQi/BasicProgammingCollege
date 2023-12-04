@@ -35,4 +35,5 @@ public class Pemilihan2Percobaan316{
             System.out.println("Masukkan kategori salah");
         }
     }
+>>>>>>> 7baeb5cf6b4f5d23ab99cdb487987dacaf4ae8e3
 }
