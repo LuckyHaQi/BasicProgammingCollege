@@ -6,7 +6,6 @@ public class ForKelipatan16{
 
         System.out.print("Masukkan bilangan kelipatan (1-9): ");
         kelipatan = scan.nextInt();
-
         for (int i = 1; i <= 50; i++){
             if (i % kelipatan == 0){
                 total += i;
