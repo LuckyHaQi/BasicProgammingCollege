@@ -1,6 +1,7 @@
 import java.util.Scanner;
-public class BioskopWithScanner16{
-    public static void main (String[] args){
+
+public class BioskopWithScanner16 {
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int baris, kolom;
         String nama, next;
@@ -25,8 +26,12 @@ public class BioskopWithScanner16{
                     kolom = scan.nextInt();
                     scan.nextLine();
 
-                    penonton[baris - 1][kolom - 1] = nama;
-                    System.out.println("Data penonton berhasil diinput.");
+                    if (baris >= 1 && baris <= penonton.length && kolom >= 1 && kolom <= penonton[0].length && penonton[baris - 1][kolom - 1] == null) {
+                        penonton[baris - 1][kolom - 1] = nama;
+                        System.out.println("Data penonton berhasil diinput.");
+                    } else {
+                        System.out.println("Kursi tidak tersedia. Silakan pilih kursi lain.");
+                    }
                     break;
 
                 case 2:
