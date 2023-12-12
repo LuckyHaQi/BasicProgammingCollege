@@ -18,32 +18,43 @@ public class BioskopWithScanner16 {
 
             switch (menu) {
                 case 1:
-                    do {
-                        System.out.print("Masukkan nama: ");
-                        nama = scan.nextLine();
-                        System.out.print("Masukkan baris: ");
-                        baris = scan.nextInt();
-                        System.out.print("Masukkan kolom: ");
-                        kolom = scan.nextInt();
-                        scan.nextLine(); 
+    do {
+        System.out.print("Masukkan nama: ");
+        nama = scan.nextLine();
 
-                        if (baris >= 1 && baris <= penonton.length && kolom >= 1 && kolom <= penonton[0].length && penonton[baris - 1][kolom - 1] == null) {
-                            penonton[baris - 1][kolom - 1] = nama;
-                            System.out.println("Data penonton berhasil diinput.");
-                        } else {
-                            System.out.println("Kursi sudah terisi. Silakan pilih kursi lain.");
-                        }
-                    } while (baris < 1 || baris > penonton.length || kolom < 1 || kolom > penonton[0].length || penonton[baris - 1][kolom - 1] != null);
-                    break;
+        if (nama.equalsIgnoreCase("exit")) {
+            System.out.println("Keluar dari input data penonton.");
+            break; // Keluar dari loop jika nama adalah "exit"
+        }
+
+        System.out.print("Masukkan baris: ");
+        baris = scan.nextInt();
+        System.out.print("Masukkan kolom: ");
+        kolom = scan.nextInt();
+        scan.nextLine();
+
+        if (baris >= 1 && baris <= penonton.length && kolom >= 1 && kolom <= penonton[0].length && penonton[baris - 1][kolom - 1] == null) {
+            penonton[baris - 1][kolom - 1] = nama;
+            System.out.println("Data penonton berhasil diinput.");
+        } else {
+            System.out.println("Kursi sudah terisi. Silakan pilih kursi lain.");
+        }
+    } while (baris < 1 || baris > penonton.length || kolom < 1 || kolom > penonton[0].length || penonton[baris - 1][kolom - 1] != null);
+    break;
 
                 case 2:
-                    System.out.println("Daftar Penonton:");
-                    for (int i = 0; i < penonton.length; i++) {
-                        for (int j = 0; j < penonton[i].length; j++) {
+                System.out.println("Daftar Penonton:");
+                for (int i = 0; i < penonton.length; i++) {
+                    for (int j = 0; j < penonton[i].length; j++) {
+                        if (penonton[i][j] == null) {
+                            System.out.println("Baris " + (i + 1) + ", Kolom " + (j + 1) + ": ***");
+                        } else {
                             System.out.println("Baris " + (i + 1) + ", Kolom " + (j + 1) + ": " + penonton[i][j]);
                         }
                     }
-                    break;
+                }
+                break;
+            
 
                 case 3:
                     System.out.println("Terima kasih!");
