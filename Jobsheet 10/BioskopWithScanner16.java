@@ -14,24 +14,26 @@ public class BioskopWithScanner16 {
             System.out.println("3. Exit");
             System.out.print("Pilih menu (1/2/3): ");
             int menu = scan.nextInt();
-            scan.nextLine(); // Consume the newline character
+            scan.nextLine(); 
 
             switch (menu) {
                 case 1:
-                    System.out.print("Masukkan nama: ");
-                    nama = scan.nextLine();
-                    System.out.print("Masukkan baris: ");
-                    baris = scan.nextInt();
-                    System.out.print("Masukkan kolom: ");
-                    kolom = scan.nextInt();
-                    scan.nextLine();
+                    do {
+                        System.out.print("Masukkan nama: ");
+                        nama = scan.nextLine();
+                        System.out.print("Masukkan baris: ");
+                        baris = scan.nextInt();
+                        System.out.print("Masukkan kolom: ");
+                        kolom = scan.nextInt();
+                        scan.nextLine(); 
 
-                    if (baris >= 1 && baris <= penonton.length && kolom >= 1 && kolom <= penonton[0].length && penonton[baris - 1][kolom - 1] == null) {
-                        penonton[baris - 1][kolom - 1] = nama;
-                        System.out.println("Data penonton berhasil diinput.");
-                    } else {
-                        System.out.println("Kursi tidak tersedia. Silakan pilih kursi lain.");
-                    }
+                        if (baris >= 1 && baris <= penonton.length && kolom >= 1 && kolom <= penonton[0].length && penonton[baris - 1][kolom - 1] == null) {
+                            penonton[baris - 1][kolom - 1] = nama;
+                            System.out.println("Data penonton berhasil diinput.");
+                        } else {
+                            System.out.println("Kursi sudah terisi. Silakan pilih kursi lain.");
+                        }
+                    } while (baris < 1 || baris > penonton.length || kolom < 1 || kolom > penonton[0].length || penonton[baris - 1][kolom - 1] != null);
                     break;
 
                 case 2:
