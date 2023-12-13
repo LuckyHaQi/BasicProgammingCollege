@@ -16,11 +16,16 @@ public class NestedLoop_2341720077 {
 
         // Output temperatures using foreach loops
         for (double[] cityTemperatures : temps) {
-            System.out.print("Kota: ");
+            // Calculate the average temperature for the city
+            double average = 0;
             for (double temperature : cityTemperatures) {
-                System.out.print(temperature + " ");
+                average += temperature;
             }
-            System.out.println();
+            average /= cityTemperatures.length;
+
+            int i = 0;
+            // Print the city and average temperature
+            System.out.print("Kota: " + (i + 1) + " | Rata-rata: " + average + "\n");
         }
     }
 }
