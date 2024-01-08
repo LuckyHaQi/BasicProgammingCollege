@@ -1,10 +1,31 @@
 import java.util.Scanner;
+
 public class Nilai16 {
-    static int[][] nilaiTugas = new int[5][7];
-    static String[] nama = {"Sari", "Rina", "Yani", "Dwi ", "Lusi"};
+
+    static int[][] nilaiTugas;
+    static int[] mahasiswa;
+
     public static void main(String[] args) {
+        // Input jumlah mahasiswa dan tugas
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jumlahMahasiswa = input.nextInt();
+        System.out.print("Masukkan jumlah tugas: ");
+        int jumlahTugas = input.nextInt();
+
+        // Inisialisasi array nilaiTugas dan mahasiswa
+        nilaiTugas = new int[jumlahMahasiswa][jumlahTugas];
+        mahasiswa = new int[jumlahMahasiswa];
+
         // Input data nilai mahasiswa
-        inputDataNilai();
+        for (int i = 0; i < jumlahMahasiswa; i++) {
+            System.out.println("Masukkan nama mahasiswa ke-" + (i + 1) + ": ");
+            mahasiswa[i] = i + 1;
+            for (int j = 0; j < jumlahTugas; j++) {
+                System.out.print("Masukkan nilai tugas untuk mahasiswa ke-" + (i + 1) + ", minggu ke-" + (j + 1) + ": ");
+                nilaiTugas[i][j] = input.nextInt();
+            }
+        }
 
         // Tampilkan seluruh nilai mahasiswa
         tampilNilai();
@@ -16,53 +37,13 @@ public class Nilai16 {
         tampilMahasiswaNilaiTertinggi(nilaiTertinggi);
     }
 
-    // Fungsi untuk input data nilai mahasiswa
-    static void inputDataNilai() {
-        Scanner input = new Scanner(System.in);
-
-        // Input data nilai Sari
-        System.out.println("Nilai tugas Sari");
-        for (int i = 0; i < 7; i++) {
-            System.out.print("Minggu ke-" + (i + 1) + ": ");
-            nilaiTugas[0][i] = input.nextInt();
-        }
-
-        // Input data nilai Rina
-        System.out.println("Nilai tugas Rina");
-        for (int i = 0; i < 7; i++) {
-            System.out.print("Minggu ke-" + (i + 1) + ": ");
-            nilaiTugas[1][i] = input.nextInt();
-        }
-
-        // Input data nilai Yani
-        System.out.println("Nilai tugas Yani");
-        for (int i = 0; i < 7; i++) {
-            System.out.print("Minggu ke-" + (i + 1) + ": ");
-            nilaiTugas[2][i] = input.nextInt();
-        }
-
-        // Input data nilai Dwi
-        System.out.println("Nilai tugas Dwi");
-        for (int i = 0; i < 7; i++) {
-            System.out.print("Minggu ke-" + (i + 1) + ": ");
-            nilaiTugas[3][i] = input.nextInt();
-        }
-
-        // Input data nilai Lusi
-        System.out.println("Nilai tugas Lusi");
-        for (int i = 0; i < 7; i++) {
-            System.out.print("Minggu ke-" + (i + 1) + ": ");
-            nilaiTugas[4][i] = input.nextInt();
-        }
-    }
-
     // Fungsi untuk menampilkan seluruh nilai mahasiswa
     static void tampilNilai() {
-        System.out.println("| Nama | Minggu 1 | Minggu 2 | Minggu 3 | Minggu 4 | Minggu 5 | Minggu 6 | Minggu 7 |");
-        for (int i = 0; i < 5; i++) {
-            System.out.print("| " + nama[i] + " |    ");
-            for (int j = 0; j < 7; j++) {
-                System.out.print(nilaiTugas[i][j] + "    |    ");
+        System.out.println("| Mahasiswa | Tugas 1 | Tugas 2 | Tugas 3 | Tugas 4 | Tugas 5 | Tugas 6 | Tugas 7 |");
+        for (int i = 0; i < nilaiTugas.length; i++) {
+            System.out.print("|     " + mahasiswa[i] + "     |   ");
+            for (int j = 0; j < nilaiTugas[i].length; j++) {
+                System.out.print(nilaiTugas[i][j] + "    |   ");
             }
             System.out.println();
         }
@@ -71,8 +52,8 @@ public class Nilai16 {
     // Fungsi untuk mencari nilai tertinggi
     static int cariNilaiTertinggi() {
         int nilaiTertinggi = nilaiTugas[0][0];
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 7; j++) {
+        for (int i = 0; i < nilaiTugas.length; i++) {
+            for (int j = 0; j < nilaiTugas[i].length; j++) {
                 if (nilaiTugas[i][j] > nilaiTertinggi) {
                     nilaiTertinggi = nilaiTugas[i][j];
                 }
@@ -83,12 +64,12 @@ public class Nilai16 {
 
     // Fungsi untuk menampilkan mahasiswa dengan nilai tertinggi
     static void tampilMahasiswaNilaiTertinggi(int nilaiTertinggi) {
-        
-        System.out.println("| Nama | Minggu |");
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 7; j++) {
+        System.out.println("\nMahasiswa yang mempunyai Nilai tertinggi pada tugas ke-");
+        System.out.println("| Mahasiswa | Tugas |");
+        for (int i = 0; i < nilaiTugas.length; i++) {
+            for (int j = 0; j < nilaiTugas[i].length; j++) {
                 if (nilaiTugas[i][j] == nilaiTertinggi) {
-                    System.out.print("| " + nama[i] + " |    " + (j + 1) + "   |");
+                    System.out.print("|     " + mahasiswa[i] + "     |   " + (j + 1) + "   |");
                     break;
                 }
             }
